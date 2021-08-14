@@ -1,0 +1,15 @@
+package kr.or.epro.fleaewha.Dto;
+
+public class MemberDto {
+
+	private String accountID;
+
+	public String getAccountID() {
+		return accountID;
+	}
+
+	public void setAccountID(String accountID) {
+		this.accountID = accountID;
+	}
+	
+}
