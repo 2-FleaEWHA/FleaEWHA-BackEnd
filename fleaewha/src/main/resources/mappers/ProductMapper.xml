@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.epro.fleaewha.mapper.PostMapper">
+    <sql id="productColumns">
+    	productID
+    	, title
+    	, content
+    	, accountID
+    	, categoryID
+    	, optionID
+    	, price
+    	, createTime
+    	, updateTime
+    	, like_count
+    	, view_count
+    </sql>
+    
+    <select id="getPosts" resultType="kr.or.epro.fleaewha.dto.Product">
+       SELECT 
+       		<include refid="productColumns"/>
+       FROM 
+       		Product
+    </select>
+    
+    <select id="getPost" parameterType="int" resultType="kr.or.epro.fleaewha.dto.Product">
+       SELECT 
+       		<include refid="productColumns"/>
+       FROM 
+       		Product 
+       WHERE 
+       		productID = #{productID}
+    </select>
+    
+    <insert id="addPost" parameterType="kr.or.epro.fleaewha.dto.Product">
+       INSERT INTO Product (
+       		<include refid="productColumns"/>
+       ) VALUES (
+       		#{productID}
+       		,#{title}
+       		,#{content}
+       		,#{accountID}
+       		,#{categoryID}
+       		,#{optionID}
+       		,#{price}
+       		,NOW()
+       		,NULL
+       		,0
+       		,0
+       )
+    </insert>
+    
+    <update id="updatePost" parameterType="kr.or.epro.fleaewha.dto.Product">
+       UPDATE Product 
+       SET 
+       		updateTime = NOW()
+       		,#{title}
+       		,#{content}
+       		,#{categoryID}
+       		,#{optionID}
+       		,#{price}
+       WHERE
+       		productID = #{productID}
+    </update>
+    
+    <delete id="deletePost" parameterType="int">
+    	DELETE FROM
+    		Product
+    	WHERE
+    		productID = #{productID} 
+    </delete>
+     
+</mapper>
