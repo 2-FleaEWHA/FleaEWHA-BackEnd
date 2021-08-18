@@ -1,12 +1,12 @@
 package kr.or.epro.fleaewha.dto;
 
-public class File {
+public class File2 {
 	private int fileID;
 	private int productID;
 	private String fileURL;
 	private int type;
-	public File() {}
-	public File(int fileID, int productID, String fileURL, int type) {
+	public File2() {}
+	public File2(int fileID, int productID, String fileURL, int type) {
 		this.fileID = fileID;
 		this.productID = productID;
 		this.fileURL = fileURL;

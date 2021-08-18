@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.or.epro.fleaewha.dao.FileMapper;
-import kr.or.epro.fleaewha.dto.File;
+import kr.or.epro.fleaewha.dto.File2;
 
 @Service
 public class FileService {
@@ -12,11 +12,11 @@ public class FileService {
 	@Autowired
 	private FileMapper fileMapper;
 	
-	public void addFile(File file) throws Exception {
+	public void addFile(File2 file) throws Exception {
 		fileMapper.addFile(file);
 	}
 	
-	public File getFile(int productID) throws Exception {
+	public File2 getFile(int productID) throws Exception {
 		return fileMapper.getFile(productID);
 	}
 	

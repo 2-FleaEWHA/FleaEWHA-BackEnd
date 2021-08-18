@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.or.epro.fleaewha.dto.File;
+import kr.or.epro.fleaewha.dto.File2;
 import kr.or.epro.fleaewha.s3.AWSS3Service;
 import kr.or.epro.fleaewha.service.FileService;
  
@@ -33,7 +33,7 @@ public class AWSS3Controller {
         String name = service.uploadFile(multipartFile);
         final String response = "[" + multipartFile.getOriginalFilename() + "] uploaded successfully.";
         final String url = "https://fleaewhabucket.s3.ap-northeast-2.amazonaws.com/"+ name;
-        fileService.addFile(new File(4, 1, url, 0));
+        fileService.addFile(new File2(4, 1, url, 0));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     

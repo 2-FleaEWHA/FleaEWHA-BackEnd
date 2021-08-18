@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.or.epro.fleaewha.dao.PostMapper;
-import kr.or.epro.fleaewha.dto.Product;
+import kr.or.epro.fleaewha.dto.Product2;
 import java.util.List;
 
 @Service
@@ -13,15 +13,15 @@ public class PostService {
 	@Autowired
 	private PostMapper postMapper;
 	
-	public List<Product> getPosts() throws Exception{
+	public List<Product2> getPosts() throws Exception{
 		return postMapper.getPosts();
 	}
 	
-	public Product getPost(int productID) throws Exception {
+	public Product2 getPost(int productID) throws Exception {
 		return postMapper.getPost(productID);
 	}
 	
-	public void addPost(Product p) throws Exception {
+	public void addPost(Product2 p) throws Exception {
 		postMapper.addPost(p);
 	}
 	
@@ -29,7 +29,7 @@ public class PostService {
 		postMapper.deletePost(productID);
 	}
 	
-	public void updatePost(Product p) throws Exception {
+	public void updatePost(Product2 p) throws Exception {
 		postMapper.updatePost(p);
 	}
 	

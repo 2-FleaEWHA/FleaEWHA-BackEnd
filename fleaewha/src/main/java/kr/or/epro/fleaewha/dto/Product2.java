@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Product {
+public class Product2 {
 	private int productID;
 	private String title;
 	private String content;
@@ -22,8 +22,8 @@ public class Product {
 	private LocalDateTime updateTime;
 	private int like_count;
 	private int view_count;
-	public Product() {}
-	public Product(int productID, String title, String content, int optionID, int categoryID, String accountID,
+	public Product2() {}
+	public Product2(int productID, String title, String content, int optionID, int categoryID, String accountID,
 			int price, LocalDateTime createTime, LocalDateTime updateTime, int like_count, int view_count) {
 		super();
 		this.productID = productID;

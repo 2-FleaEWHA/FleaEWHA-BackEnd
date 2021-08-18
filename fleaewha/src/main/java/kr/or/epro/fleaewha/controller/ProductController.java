@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kr.or.epro.fleaewha.dto.Product;
+import kr.or.epro.fleaewha.dto.Product2;
 import kr.or.epro.fleaewha.service.PostService;
 
 @RestController
@@ -24,12 +24,12 @@ public class ProductController {
 	private PostService postService;
 	
 	@GetMapping("/products")
-	public List<Product> getPosts() throws Exception {
+	public List<Product2> getPosts() throws Exception {
 		return postService.getPosts();
 	}
 	
 	@GetMapping("/products/{productID}")
-	public Product getPost(
+	public Product2 getPost(
 			@PathVariable int productID
 	 ) throws Exception {	    
 		return postService.getPost(productID);
@@ -37,7 +37,7 @@ public class ProductController {
 	
 	@PostMapping("/new-product")
 	public String addPost(
-			@RequestBody Product p
+			@RequestBody Product2 p
 			) throws Exception {
 		postService.addPost(p);
 		return "post added";
@@ -45,7 +45,7 @@ public class ProductController {
 
     @PutMapping("/products/{productID}")
     public String updatePost(
-            @RequestBody Product p
+            @RequestBody Product2 p
     ) throws Exception {
     	postService.updatePost(p);
         return "post updated";
