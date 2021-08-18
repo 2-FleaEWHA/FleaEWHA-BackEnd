@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amazonaws.Response;
-import com.sun.beans.introspect.PropertyInfo.Name;
+//import com.sun.beans.introspect.PropertyInfo.Name;
 
 import kr.or.epro.fleaewha.dao.MainDao;
 import kr.or.epro.fleaewha.dto.MainDto;
