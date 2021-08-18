@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
+@MapperScan("kr.or.epro.fleaewha.mapper")
 @Configuration
-@MapperScan("kr.or.epro.fleaewha.dao")
 public class MySQLConfig {
-
+	
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
@@ -27,4 +27,5 @@ public class MySQLConfig {
 
         return sessionFactory.getObject();
 	}
+	
 }
