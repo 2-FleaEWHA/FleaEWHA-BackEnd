@@ -3,7 +3,7 @@ package kr.or.epro.fleaewha.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.or.epro.fleaewha.mapper.PostMapper;
+import kr.or.epro.fleaewha.dao.PostMapper;
 import kr.or.epro.fleaewha.dto.Product;
 import java.util.List;
 

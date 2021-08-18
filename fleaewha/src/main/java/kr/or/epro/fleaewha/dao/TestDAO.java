@@ -1,4 +1,4 @@
-package kr.or.epro.fleaewha.mapper;
+package kr.or.epro.fleaewha.dao;
 
 import java.util.List;
 import kr.or.epro.fleaewha.dto.TestDTO;

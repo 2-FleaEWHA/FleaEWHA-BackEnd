@@ -3,8 +3,8 @@ package kr.or.epro.fleaewha.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.or.epro.fleaewha.dao.FileMapper;
 import kr.or.epro.fleaewha.dto.File;
-import kr.or.epro.fleaewha.mapper.FileMapper;
 
 @Service
 public class FileService {
