@@ -10,7 +10,7 @@
         from
             File
         where
-        	fileID = #{fileID}
+        	productID = #{productID} and type=1
     </select>
     
     <insert id="addFile" parameterType="kr.or.epro.fleaewha.dto.File2">
@@ -28,6 +28,6 @@
     	DELETE FROM
     		File
     	WHERE
-    		fileID = #{fileID} 
+    		productID = #{productID} 
     </delete>
 </mapper>
