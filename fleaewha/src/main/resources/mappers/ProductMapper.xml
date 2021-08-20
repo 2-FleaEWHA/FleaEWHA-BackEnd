@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.or.epro.fleaewha.mapper.PostMapper">
+<mapper namespace="kr.or.epro.fleaewha.dao.PostMapper">
     <sql id="productColumns">
     	productID
     	, title
@@ -15,14 +15,14 @@
     	, view_count
     </sql>
     
-    <select id="getPosts" resultType="kr.or.epro.fleaewha.dto.Product">
+    <select id="getPosts" resultType="kr.or.epro.fleaewha.dto.Product2">
        SELECT 
        		<include refid="productColumns"/>
        FROM 
        		Product
     </select>
     
-    <select id="getPost" parameterType="int" resultType="kr.or.epro.fleaewha.dto.Product">
+    <select id="getPost" parameterType="int" resultType="kr.or.epro.fleaewha.dto.Product2">
        SELECT 
        		<include refid="productColumns"/>
        FROM 
@@ -31,7 +31,7 @@
        		productID = #{productID}
     </select>
     
-    <insert id="addPost" parameterType="kr.or.epro.fleaewha.dto.Product">
+    <insert id="addPost" parameterType="kr.or.epro.fleaewha.dto.Product2">
        INSERT INTO Product (
        		<include refid="productColumns"/>
        ) VALUES (
@@ -42,17 +42,17 @@
        		,#{categoryID}
        		,#{optionID}
        		,#{price}
-       		,NOW()
-       		,NULL
+       		,\func NOW()
+       		,\func NULL
        		,0
        		,0
        )
     </insert>
     
-    <update id="updatePost" parameterType="kr.or.epro.fleaewha.dto.Product">
+    <update id="updatePost" parameterType="kr.or.epro.fleaewha.dto.Product2">
        UPDATE Product 
        SET 
-       		updateTime = NOW()
+       		updateTime = \func NOW()
        		,#{title}
        		,#{content}
        		,#{categoryID}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.or.epro.fleaewha.mapper.FileMapper">
-    <select id="getFile" resultType="kr.or.epro.fleaewha.dto.File">
+<mapper namespace="kr.or.epro.fleaewha.dao.FileMapper">
+    <select id="getFile" resultType="kr.or.epro.fleaewha.dto.File2">
         select
             fileID,
             productID,
@@ -13,7 +13,7 @@
         	fileID = #{fileID}
     </select>
     
-    <insert id="addFile" parameterType="kr.or.epro.fleaewha.dto.File">
+    <insert id="addFile" parameterType="kr.or.epro.fleaewha.dto.File2">
          INSERT INTO File (
        		fileID, productID, fileURL, type
        ) VALUES (
