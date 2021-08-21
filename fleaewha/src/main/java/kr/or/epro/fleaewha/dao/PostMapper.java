@@ -11,4 +11,5 @@ public interface PostMapper {
 	public int addPost(Product2 p) throws Exception;
 	public int deletePost(int productID) throws Exception;
 	public int updatePost(Product2 p) throws Exception;
+	public List<File2> getFiles(int productID) throws Exception;
 }

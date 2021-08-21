@@ -1,6 +1,7 @@
 package kr.or.epro.fleaewha.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,22 +23,8 @@ public class Product2 {
 	private LocalDateTime updateTime;
 	private int like_count;
 	private int view_count;
-	public Product2() {}
-	public Product2(int productID, String title, String content, int optionID, int categoryID, String accountID,
-			int price, LocalDateTime createTime, LocalDateTime updateTime, int like_count, int view_count) {
-		super();
-		this.productID = productID;
-		this.title = title;
-		this.content = content;
-		this.optionID = optionID;
-		this.categoryID = categoryID;
-		this.accountID = accountID;
-		this.price = price;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-		this.like_count = like_count;
-		this.view_count = view_count;
-	}
+	private List<File2> files;
+
 	public int getProductID() {
 		return productID;
 	}
@@ -104,5 +91,12 @@ public class Product2 {
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
 	}
+	public List<File2> getFiles() {
+		return files;
+	}
+	public void setFiles(List<File2> files) {
+		this.files = files;
+	}
+
 
 }

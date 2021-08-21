@@ -17,7 +17,6 @@ import kr.or.epro.fleaewha.dto.Product2;
 import kr.or.epro.fleaewha.service.PostService;
 
 @RestController
-@RequestMapping(value="/fleaewha")
 public class ProductController {
 	
 	@Autowired
@@ -31,8 +30,11 @@ public class ProductController {
 	@GetMapping("/products/{productID}")
 	public Product2 getPost(
 			@PathVariable int productID
-	 ) throws Exception {	    
-		return postService.getPost(productID);
+	 ) throws Exception {	
+		Product2 p = postService.getPost(productID);
+		List files = postService.getFiles(productID);
+		p.setFiles(files);
+		return p;
 	 }
 	
 	@PostMapping("/new-product")

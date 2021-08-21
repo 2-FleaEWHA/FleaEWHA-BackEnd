@@ -37,7 +37,7 @@ public class AWSS3Controller {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     
-    @GetMapping("/getTest/{productID}")
+    @GetMapping("/download/{productID}")
     public String testFile(
     		@PathVariable int productID
     		) throws Exception {
