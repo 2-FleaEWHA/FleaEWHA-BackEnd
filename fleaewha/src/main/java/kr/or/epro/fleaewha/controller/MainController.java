@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +33,14 @@ public class MainController {
 	}
 	
 
-	@GetMapping("/mypage")
-	public List<MypageDto> mypage(){
-		return mainDao.getMyData();
+	@PostMapping("/mypage")
+	public List<MypageDto> mypage(
+			@RequestParam(value="id")String id){
+		return mainDao.getMyData(id);
 	}
 	
 	@PostMapping("/login")
-	public String login(
+	public HashMap login(
 		@RequestParam(value="id")String id,
 		@RequestParam(value="name")String name,
 		@RequestParam(value="email")String email){
@@ -46,12 +49,18 @@ public class MainController {
 		dto.setId(id);
 		dto.setName(name);
 		dto.setEmail(email);
-		
+		HashMap<String,String> list=new HashMap<String,String>();
 		mainDao.insertUser(dto);
 		if(mainDao.checkUser(id))	
-			return "success";
+			{
+			list.put("msg", "success");
+			return list;
+			}
 		else
-			return "faile";
+		{
+			list.put("msg", "fail");
+			return list;
 		}
 	}
+}
 

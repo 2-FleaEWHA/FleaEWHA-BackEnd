@@ -9,7 +9,7 @@ import kr.or.epro.fleaewha.dto.MypageDto;
 
 public interface MainDao {
 	List<MainDto> getMainData();
-	List<MypageDto> getMyData();
+	List<MypageDto> getMyData(String id);
 	public void insertUser(MemberDto dto);
 	boolean checkUser(String id);
 }
