@@ -5,13 +5,6 @@ public class File2 {
 	private int productID;
 	private String fileURL;
 	private int type;
-	public File2() {}
-	public File2(int fileID, int productID, String fileURL, int type) {
-		this.fileID = fileID;
-		this.productID = productID;
-		this.fileURL = fileURL;
-		this.type = type;
-	}
 	public int getProductID() {
 		return productID;
 	}

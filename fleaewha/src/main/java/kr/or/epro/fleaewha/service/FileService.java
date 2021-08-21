@@ -1,5 +1,7 @@
 package kr.or.epro.fleaewha.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +22,16 @@ public class FileService {
 		return fileMapper.getFile(productID);
 	}
 	
-	public void deleteFile(int fileID) throws Exception {
-		fileMapper.deleteFile(fileID);
+	public void deleteFile(int productID) throws Exception {
+		fileMapper.deleteFile(productID);
+	}
+	
+	public List<File2> getFiles(int productID) throws Exception {
+		return fileMapper.getFiles(productID);
+	}
+	
+	public void updateFile(File2 f) throws Exception{
+		fileMapper.updateFile(f);
 	}
 	
 }

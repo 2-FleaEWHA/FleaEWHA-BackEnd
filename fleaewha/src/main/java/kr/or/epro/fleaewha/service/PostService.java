@@ -34,8 +34,5 @@ public class PostService {
 		postMapper.updatePost(p);
 	}
 	
-	public List<File2> getFiles(int productID) throws Exception {
-		return postMapper.getFiles(productID);
-	}
 	
 }

@@ -30,4 +30,23 @@
     	WHERE
     		productID = #{productID} 
     </delete>
+    
+    <select id="getFiles" parameterType="int" resultType="kr.or.fleaewha.dto.File2">
+        SELECT 
+        	fileURL
+        FROM 
+        	File
+		WHERE 
+			productID = #{productID}
+    </select>
+    
+    <update id="updateFile" parameterType="kr.or.epro.fleaewha.dto.File2">
+    UPDATE File
+    SET 
+    	fileURL = #{fileURL},
+    	type = #{type}
+    WHERE
+    	productID = #{productID}
+    
+    </update>
 </mapper>

@@ -42,8 +42,8 @@
        		,#{categoryID}
        		,#{optionID}
        		,#{price}
-       		,\func NOW()
-       		,\func NULL
+       		,NOW()
+       		,NULL
        		,0
        		,0
        )
@@ -52,12 +52,12 @@
     <update id="updatePost" parameterType="kr.or.epro.fleaewha.dto.Product2">
        UPDATE Product 
        SET 
-       		updateTime = \func NOW()
-       		,#{title}
-       		,#{content}
-       		,#{categoryID}
-       		,#{optionID}
-       		,#{price}
+       		updateTime = NOW()
+       		,title = #{title}
+       		,content = #{content}
+       		,categoryID = #{categoryID}
+       		,optionID = #{optionID}
+       		,price = #{price}
        WHERE
        		productID = #{productID}
     </update>
@@ -68,11 +68,5 @@
     	WHERE
     		productID = #{productID} 
     </delete>
-    
-     <select id="getFiles" parameterType="int" resultType="kr.or.epro.fleaewha.dto.File2">
-        SELECT fileURL
-        FROM File
-		WHERE productID = #{productID}
-    </select>
 
 </mapper>
