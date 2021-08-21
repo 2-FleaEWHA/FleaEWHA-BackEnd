@@ -8,17 +8,18 @@
             p.createTime, 
             f.fileURL
        	FROM Product p, File f
-        WHERE f.fileID=p.productID AND f.type=1 
+        WHERE f.productID=p.productID AND f.type=1 
         ORDER BY p.createTime DESC limit 12
     </select>
     
-     <select id="getMyData" resultType="kr.or.epro.fleaewha.dto.MypageDto">
+     <select id="getMyData" parameterType="String" resultType="kr.or.epro.fleaewha.dto.MypageDto">
         SELECT
             p.title,
             p.productID,
-            u.id
+            u.email,
+            u.name
        	FROM Product p, User u
-        WHERE p.accountID=u.id
+        WHERE p.accountID=#{id} AND u.id=#{id}
     </select>
     
     <insert id="insertUser" parameterType="kr.or.epro.fleaewha.dto.MemberDto">
