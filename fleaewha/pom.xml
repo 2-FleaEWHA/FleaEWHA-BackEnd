@@ -24,10 +24,7 @@
     <artifactId>aws-java-sdk</artifactId>
     <version>1.12.47</version>
 </dependency>
-<!-- 추가한것 -->
 
-
-<!-- 추가한것 -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +46,7 @@
     		<artifactId>spring-boot-starter-test</artifactId>
     		<scope>test</scope>
 		</dependency>
+		<!--클래스의 getter, setter, constructor를 자동 생성-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -76,6 +74,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!--웹 소켓 사용, stomp-->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
 	</dependencies>
 
