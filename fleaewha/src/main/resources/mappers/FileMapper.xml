@@ -31,7 +31,7 @@
     		productID = #{productID} 
     </delete>
     
-    <select id="getFiles" parameterType="int" resultType="kr.or.fleaewha.dto.File2">
+    <select id="getFiles" parameterType="int" resultType="kr.or.epro.fleaewha.dto.File2">
         SELECT 
         	fileURL
         FROM 
