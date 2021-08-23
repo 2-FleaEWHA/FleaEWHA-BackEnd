@@ -13,11 +13,7 @@ public class PostService {
 	
 	@Autowired
 	private PostMapper postMapper;
-	
-	public List<Product2> getPosts() throws Exception{
-		return postMapper.getPosts();
-	}
-	
+
 	public Product2 getPost(int productID) throws Exception {
 		return postMapper.getPost(productID);
 	}

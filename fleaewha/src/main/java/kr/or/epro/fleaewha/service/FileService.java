@@ -26,7 +26,7 @@ public class FileService {
 		fileMapper.deleteFile(productID);
 	}
 	
-	public List<File2> getFiles(int productID) throws Exception {
+	public List<String> getFiles(int productID) throws Exception {
 		return fileMapper.getFiles(productID);
 	}
 	

@@ -23,7 +23,7 @@ public class Product2 {
 	private LocalDateTime updateTime;
 	private int like_count;
 	private int view_count;
-	private List<File2> files;
+	private List<String> files;
 
 	public int getProductID() {
 		return productID;
@@ -91,10 +91,10 @@ public class Product2 {
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
 	}
-	public List<File2> getFiles() {
+	public List<String> getFiles() {
 		return files;
 	}
-	public void setFiles(List<File2> files) {
+	public void setFiles(List<String> files) {
 		this.files = files;
 	}
 

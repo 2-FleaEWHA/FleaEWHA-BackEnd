@@ -15,13 +15,6 @@
     	, view_count
     </sql>
     
-    <select id="getPosts" resultType="kr.or.epro.fleaewha.dto.Product2">
-       SELECT 
-       		<include refid="productColumns"/>
-       FROM 
-       		Product
-    </select>
-    
     <select id="getPost" parameterType="int" resultType="kr.or.epro.fleaewha.dto.Product2">
        SELECT 
        		<include refid="productColumns"/>
@@ -31,7 +24,7 @@
        		productID = #{productID}
     </select>
     
-    <insert id="addPost" parameterType="kr.or.epro.fleaewha.dto.Product2">
+    <insert id="addPost" parameterType="kr.or.epro.fleaewha.dto.Product2" useGeneratedKeys="true" keyProperty="productID">
        INSERT INTO Product (
        		<include refid="productColumns"/>
        ) VALUES (
@@ -43,7 +36,7 @@
        		,#{optionID}
        		,#{price}
        		,NOW()
-       		,NULL
+       		,NOW()
        		,0
        		,0
        )
