@@ -35,3 +35,4 @@ build/
 ### etc ###
 pom.properties
 .txt
+application.properties
