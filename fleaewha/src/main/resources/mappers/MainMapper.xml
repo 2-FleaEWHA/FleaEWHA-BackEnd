@@ -20,6 +20,7 @@
             u.name
        	FROM Product p, User u
         WHERE p.accountID=#{id} AND u.id=#{id}
+        ORDER BY p.createTime DESC
     </select>
     
     <insert id="insertUser" parameterType="kr.or.epro.fleaewha.dto.MemberDto">
