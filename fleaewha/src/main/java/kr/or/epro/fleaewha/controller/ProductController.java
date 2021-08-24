@@ -66,18 +66,25 @@ public class ProductController {
 	}
 
 
-    @PutMapping("/modified-product")
+    @PutMapping("/products/{productID}")
     public String updatePost(
     		@RequestPart(value= "file") final List<MultipartFile> multipartFiles,
-            @RequestPart(value= "product") Product2 p
+            @RequestPart(value= "product") Product2 p,
+            @PathVariable int productID
     ) throws Exception {
-    
+    	
+    	p.setProductID(productID);
+    	
     	postService.updatePost(p);
     
 		String url;
 		for(MultipartFile file : multipartFiles) {
-			url = "https://fleaewhabucket.s3.ap-northeast-2.amazonaws.com/" + service.uploadFile(file);
 			File2 file2 = new File2();
+			if(file == multipartFiles.get(0))
+				file2.setType(1);
+			else
+				file2.setType(0);
+			url = "https://fleaewhabucket.s3.ap-northeast-2.amazonaws.com/" + service.uploadFile(file);
 			file2.setProductID(p.getProductID());
 			file2.setFileURL(url);
 			fileService.updateFile(file2);
