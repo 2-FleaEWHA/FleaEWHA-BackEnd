@@ -36,9 +36,12 @@ public class MainController {
 	
 
 	@PostMapping("/mypage")
-	public List<MypageDto> mypage(
-			@RequestParam(value="id")String id){
-		return mainDao.getMyData(id);
+	public List<MypageDto> mypage(HttpSession session){
+		if(session.getAttribute("id")==null)
+			return mainDao.getMyData(null);
+		else {
+		return mainDao.getMyData((String)session.getAttribute("id"));
+		}
 	}
 	
 	@PostMapping("/login")
@@ -49,6 +52,7 @@ public class MainController {
 		HttpSession session){
 		
 		session.setAttribute("id", id);
+		
 		MemberDto dto=new MemberDto();
 		dto.setId(id);
 		dto.setName(name);
@@ -65,6 +69,7 @@ public class MainController {
 			list.put("msg", "fail");
 			return list;
 		}
+	
 	}
 	
 	@RequestMapping(value="/logout")
