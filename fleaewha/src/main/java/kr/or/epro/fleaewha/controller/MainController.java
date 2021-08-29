@@ -35,12 +35,27 @@ public class MainController {
 	}
 	
 
-	@PostMapping("/mypage")
-	public List<MypageDto> mypage(HttpSession session){
+	@GetMapping("/mypage")
+	public Map<String,Object> mypage(HttpSession session){
+		
+		Map<String,Object> list=new HashMap<String,Object>();
 		if(session.getAttribute("id")==null)
-			return mainDao.getMyData(null);
+			{
+				list.put("data",mainDao.getMyData(null));
+				return list;
+			}
 		else {
-		return mainDao.getMyData((String)session.getAttribute("id"));
+			if(mainDao.idcheck((String)session.getAttribute("id")))
+				{
+				list.put("data",mainDao.getMyData((String)session.getAttribute("id")));
+				return list;
+				}
+			else 
+			{
+				list.put("data",mainDao.getUserData((String)session.getAttribute("id")));
+				return list;
+			}
+			
 		}
 	}
 	
