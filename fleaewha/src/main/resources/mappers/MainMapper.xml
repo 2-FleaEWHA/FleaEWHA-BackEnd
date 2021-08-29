@@ -23,6 +23,16 @@
         ORDER BY p.createTime DESC
     </select>
     
+    <select id="getUserData" resultType="kr.or.epro.fleaewha.dto.UserDto">
+    SELECT email,name
+    FROM User
+    WHERE id=#{id}
+    </select>
+    
+    <select id="idcheck" resultType="boolean">
+    SELECT EXISTS(SELECT accountID FROM fleaewha.Product WHERE accountID=#{id})as success
+    </select>
+    
     <insert id="insertUser" parameterType="kr.or.epro.fleaewha.dto.MemberDto">
     INSERT INTO User(id,name,email)
     VALUES (#{id}, #{name},#{email})
