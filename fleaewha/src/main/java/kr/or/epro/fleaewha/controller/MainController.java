@@ -35,7 +35,7 @@ public class MainController {
 	}
 	
 
-	@PostMapping("/mypage")
+	@GetMapping("/mypage")
 	public List<MypageDto> mypage(HttpSession session){
 		if(session.getAttribute("id")==null)
 			return mainDao.getMyData(null);
