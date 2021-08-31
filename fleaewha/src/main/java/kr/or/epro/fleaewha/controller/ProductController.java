@@ -1,12 +1,8 @@
 package kr.or.epro.fleaewha.controller;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -47,18 +42,14 @@ public class ProductController {
 		return p;
 	 }
 	
-	@PostMapping("/new-product")
+	@PostMapping(value = "/new-product", consumes = {"multipart/form-data"})
 	public String addPost(
-			@RequestPart(value= "file", required=false) final List<MultipartFile> multipartFiles,
 			@RequestPart(value= "product") Product2 p,
-			HttpSession session
+			@RequestPart(value= "file", required=false) final List<MultipartFile> multipartFiles
 	) throws Exception {
-		
-		if(session.getAttribute("id")==null)
-    		throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
-    	else {
+	
 			postService.addPost(p);
-			
+	
 			String url;
 			if(!CollectionUtils.isEmpty(multipartFiles)) {
 				for(MultipartFile file : multipartFiles) {
@@ -71,26 +62,20 @@ public class ProductController {
 					fileService.addFile(file2);
 				}	
 			}
-			else return "post added";
-				
+			else return "post added with no file";		
 
 			return "post added";
-    	}
-					
-	}
+    	
+	}			
 
 
     @PutMapping("/products/{productID}")
     public String updatePost(
     		@RequestPart(value= "file", required=false) final List<MultipartFile> multipartFiles,
             @RequestPart(value= "product") Product2 p,
-            @PathVariable int productID,
-            HttpSession session
+            @PathVariable int productID
     ) throws Exception {
-    	
-    	if(session.getAttribute("id")==null)
-    		throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
-    	else {
+
     	  	p.setProductID(productID);
         	
         	postService.updatePost(p);
@@ -112,18 +97,15 @@ public class ProductController {
     		else return "post updated";
         	
             return "post updated";
-    	}
+    	
     	
     }
 
     @DeleteMapping("/products/{productID}")
     public String deletePost(
-            @PathVariable int productID,
-            HttpSession session
+            @PathVariable int productID
     ) throws Exception {
-    	if(session.getAttribute("id") == null)
-    		throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
-    	else {
+  
     		fileService.deleteFile(productID);
         	postService.deletePost(productID);
         	return "post deleted";
@@ -131,4 +113,4 @@ public class ProductController {
  
     }
 	
-}
+
